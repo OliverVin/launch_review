@@ -59,8 +59,10 @@ public class LaunchReviewPlugin implements MethodCallHandler, FlutterPlugin, Act
             final List<ResolveInfo> otherApps =  activity.getPackageManager()
                     .queryIntentActivities(rateIntent, 0);
             for (ResolveInfo otherApp: otherApps) {
-                // look for Google Play application
+                // look for Google Play application or huawei application
                 if (otherApp.activityInfo.applicationInfo.packageName
+                        .equals("com.huawei.appmarket") || 
+                    otherApp.activityInfo.applicationInfo.packageName
                         .equals("com.android.vending")) {
 
                     ActivityInfo otherAppActivity = otherApp.activityInfo;
